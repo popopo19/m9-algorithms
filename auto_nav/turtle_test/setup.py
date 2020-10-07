@@ -16,7 +16,18 @@ y_offset = -100
 
 # Given pylon points
 pylon1_coord = [0, y_offset + math.sqrt(30000)]
-pylon2_coord = [0, y_offset + math.sqrt(30000)]
+pylon2_coord = [0, y_offset + math.sqrt(30000) + 200]
+
+# Stopwatch for testing
+stopwatch = 0
+
+def start_stopwatch():
+	global stopwatch
+
+	while True:
+		time.sleep(1.0)
+		stopwatch += 1
+		print("Time: " + str(stopwatch))
 
 def main():
 
@@ -24,11 +35,12 @@ def main():
 	win = turtle.Screen()
 
 	# Creation of the drone
-	drone = turtle.Turtle()
+	drone = Drone()
 	drone.penup()
 	drone.goto(-100, y_offset)
 	drone.shape("turtle")
 	drone.left(random.randrange(0, 361))
+	drone.pendown()
 
 	# Creation of pylons
 	pylon1 = create_point(pylon1_coord[0], pylon1_coord[1])
@@ -41,6 +53,9 @@ def main():
 	# Choose which algorithm to test
 	test_file = input("Enter the file you want to test: ")
 	algo = __import__(test_file)
+
+	t = threading.Thread(target=start_stopwatch)
+	t.start()
 	algo.auto_nav(drone, pylon1.pos(), pylon2.pos())
 
 	print("Execution Done. Click on turtle screen to exit program.")
