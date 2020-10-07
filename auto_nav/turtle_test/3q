@@ -1,0 +1,6 @@
+
+
+def auto_nav(drone, pylon1, pylon2, destination):
+	pass
+
+# GOOD LUCK
