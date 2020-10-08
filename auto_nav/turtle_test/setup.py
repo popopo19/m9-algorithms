@@ -5,8 +5,9 @@
 # IMPORTANT: The distance between the two pylons are not to-scale.
 # Only the distance between the drone, destination, and pylon1 are to-scale.
 
-import time, turtle, random, math, sys, threading
+import time, turtle, random, math, sys, threading, csv
 from functions import *
+from record import *
 
 # Allows modules from the algorithms folder
 sys.path.append("./algorithms")
@@ -18,16 +19,20 @@ y_offset = -100
 pylon1_coord = [0, y_offset + math.sqrt(30000)]
 pylon2_coord = [0, y_offset + math.sqrt(30000) + 200]
 
+# Variable for when testing has stopped
+done_testing = False
+
 # Stopwatch for testing
 stopwatch = 0
 
+# Function for the threading
 def start_stopwatch():
 	global stopwatch
 
-	while True:
+	while not done_testing:
 		time.sleep(1.0)
 		stopwatch += 1
-		print("Time: " + str(stopwatch))
+		# print("Time: " + str(stopwatch))
 
 def main():
 
@@ -57,6 +62,26 @@ def main():
 	t = threading.Thread(target=start_stopwatch)
 	t.start()
 	algo.auto_nav(drone, pylon1.pos(), pylon2.pos())
+	done_testing = True
+
+	order = []
+
+	# Read from csv
+	with open('records.csv') as record_file:
+		cvs_reader = csv.reader(csv_file, delimiter = ',')
+		
+		for row in csv_reader:
+			order += [[row[0], row[1]]]
+
+	order = sort_by_time(order, [test_file, stopwatch])
+
+	# Write to csv
+	with open('records.csv', mode = 'w') as record_file:
+		record_writer = csv.writer(record_file, delimiter = ',', quotechar = ',', quoting = csv.QUOTE_MINIMAL)
+
+		record_writer.writerow([test_file, stopwatch])
+
+	print("Time Taken: " + str(stopwatch))
 
 	print("Execution Done. Click on turtle screen to exit program.")
 	turtle.exitonclick() # Ensures that screen will close on any key pressed
