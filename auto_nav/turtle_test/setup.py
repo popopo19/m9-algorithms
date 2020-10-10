@@ -73,7 +73,7 @@ def main():
 		for row in csv_reader:
 			order += [[row[0], row[1]]]
 
-	order = sort_by_time(order, [test_file, stopwatch])
+	# order = sort_by_time(order, [test_file, stopwatch])
 
 	# Write to csv
 	with open('records.csv', mode = 'w') as record_file:

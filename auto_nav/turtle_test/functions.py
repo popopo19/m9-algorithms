@@ -58,7 +58,3 @@ class Drone(turtle.Turtle):
 	def go_backward(self, n):
 		self.backward(n)
 		time.sleep(self.wait_time)
-
-test = [["A", 1], ["B", 2], ["C", 3], ["D", 4], ["E", 5], ["F", 6]]
-test = sort_by_time(test, ["TEST", int(input("N: "))])
-print(test)
