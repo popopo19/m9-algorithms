@@ -3,9 +3,9 @@
 1. Copy template.py with `cp template.py filename.py` replacing "filename" with a name of your choice
 2. Write your code in the auto_nav function
 3. Run setup.py and then you will be prompted with the file name of your choice.
-4. You're now good to go.
-
-Note: If you get a display variable error, enter in the command `export DISPLAY=:0` and launch Xming.
+4. If your file name is "sample.py", write "sample"
+5. You're now good to go.
+6. After you get your results, record your results in record.csv
 
 # Function Specs For auto_nav()
 

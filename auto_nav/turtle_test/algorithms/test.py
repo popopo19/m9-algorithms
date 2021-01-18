@@ -9,9 +9,9 @@ import turtle
 
 def auto_nav(drone, pylon1, pylon2):
 	for i in range(2):
-		drone.move_to(pylon1[0] + 30, pylon1[1] - 30)
-		drone.move_to(pylon2[0] + 30, pylon2[1] + 30)
-		drone.move_to(pylon2[0] - 30, pylon2[1] + 30)
-		drone.move_to(pylon1[0] - 30, pylon1[1] - 30)
+		drone.goto(pylon1[0] + 30, pylon1[1] - 30)
+		drone.goto(pylon2[0] + 30, pylon2[1] + 30)
+		drone.goto(pylon2[0] - 30, pylon2[1] + 30)
+		drone.goto(pylon1[0] - 30, pylon1[1] - 30)
 
 # GOOD LUCK

@@ -11,17 +11,3 @@ def create_point(x, y):
 	pylon.goto(x, y)
 
 	return pylon
-
-class Drone(turtle.Turtle):
-	def __init__(self):
-		super().__init__()
-		self.speed(1)
-
-	def move_to(self, x, y):
-		self.goto(x, y)
-
-	def go_forward(self, n):
-		self.forward(n)
-
-	def go_backward(self, n):
-		self.backward(n)

@@ -2,8 +2,12 @@
 
 # Some functions for turtle movement
 # drone.left(n) - Turn left n degrees. There's also right.
-# drone.go_foward(n) - Go forward n amount. There's also backwards.
-# drone.move_to(x, y) - Got to position (x, y)
+# drone.forward(n) - Go forward n amount. There's also backwards.
+# drone.goto(x, y) - Go to position (x, y)
+
+# Keep the speed of the drone at 1
+# However, if you want to change it, to change it is drone.speed(#)
+# If you change the speed, remember to record that in record.csv
 
 import turtle
 

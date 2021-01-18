@@ -5,7 +5,7 @@
 # IMPORTANT: The distance between the two pylons are not to-scale.
 # Only the distance between the drone, destination, and pylon1 are to-scale.
 
-import random, math, sys, threading
+import random, math, sys, threading, turtle
 from functions import *
 
 # Allows modules from the algorithms folder
@@ -30,8 +30,8 @@ def start_stopwatch():
     global stopwatch
 
     while not done_testing:
-        time.sleep(1.0)
-        stopwatch += 1
+        time.sleep(0.1)
+        stopwatch += 0.1
     # print("Time: " + str(stopwatch))
 
 
@@ -40,7 +40,8 @@ def main():
     win = turtle.Screen()
 
     # Creation of the drone
-    drone = Drone()
+    drone = turtle.Turtle()
+    drone.speed(1)
     drone.penup()
     drone.goto(-100, y_offset)
     drone.shape("turtle")
