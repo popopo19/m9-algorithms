@@ -15,7 +15,7 @@ sys.path.append("./algorithms")
 y_offset = -100
 
 # Given pylon points
-pylon1_coord = [0, y_offset + math.sqrt(30000)]
+pylon1_coord = [0, y_offset + math.sqrt(30000)] * [2, 3]
 pylon2_coord = [0, y_offset + math.sqrt(30000) + 200]
 
 # Variable for when testing has stopped

@@ -1,6 +1,6 @@
 # Creating and running your algorithm
 
-1. Copy template.py with `cp template.py filename.py` replacing "filename" with a name of your choice
+1. Copy template.py and create a new python file in the algorithms folder
 2. Write your code in the auto_nav function
 3. Run setup.py and then you will be prompted with the file name of your choice.
 4. If your file name is "sample.py", write "sample"
